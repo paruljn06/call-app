@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="My Call App"
+            app:titleTextColor="@android:color/white" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="#CCCCCC"
+            app:tabSelectedTextColor="@android:color/white">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logs" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dialpad" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/contactsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search contacts..."
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:layout_margin="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialpadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/etDialNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:gravity="center"
+                android:inputType="phone"
+                android:background="@null"
+                android:hint="0000000000" />
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:layout_marginTop="24dp">
+                <!-- Buttons will be handled in code or simplified here -->
+                <Button android:text="1" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="2" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="3" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="4" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="5" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="6" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="7" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="8" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="9" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="*" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="0" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+                <Button android:text="#" style="@style/Widget.MaterialComponents.Button.TextButton" android:textSize="24sp" />
+            </GridLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabDial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:src="@android:drawable/stat_sys_phone_call"
+                app:backgroundTint="#4CAF50"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="@android:color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
